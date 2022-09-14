@@ -1,0 +1,20 @@
+
+#headerbar{
+    display: flex;
+    border-bottom: 1px solid black;
+}
+
+.link{
+    margin: 5px;
+    padding: 10px;
+    background-color: #fff;
+    text-decoration: none;
+    color: black;
+}
+
+.link:hover{
+    /* background-color: #aaa; */
+    text-decoration: underline;
+    outline: 1px solid black;
+
+}

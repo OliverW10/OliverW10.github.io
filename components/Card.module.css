@@ -1,0 +1,45 @@
+
+.card{
+    outline-color: black;
+    outline-width: 1px;
+    outline-style: solid;
+    padding: 10px;
+    padding-top: 5px;
+    margin: 10px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .card:hover{
+    outline-width: 2px;
+} */
+
+.iconLink{
+    padding: 3px;
+}
+.iconLink:hover{
+    text-decoration: underline;
+}
+.icon{
+    transform: scale(0.9);
+}
+
+.icon:hover{
+    transform: scale(1);
+}
+
+.language{
+    color: #999;
+    font-size: x-small;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin:0;
+}
+.date{
+    color: #999;
+    font-size: small;
+}
+.title{
+    margin-top: 3px;
+}
