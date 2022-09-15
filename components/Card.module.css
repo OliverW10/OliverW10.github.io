@@ -9,6 +9,18 @@
     border-radius: 3px;
     display: flex;
     justify-content: space-between;
+    width: 85vw;
+}
+
+.card:hover{
+    /* background-color: #eee; */
+    outline-width: 2px;
+}
+
+@media only screen and (min-width: 768px) {
+    .card{
+        width: 50vw; 
+    }
 }
 
 /* .card:hover{
@@ -17,6 +29,8 @@
 
 .iconLink{
     padding: 3px;
+    width: 20px;
+    height: 20px;
 }
 .iconLink:hover{
     text-decoration: underline;
@@ -42,4 +56,19 @@
 }
 .title{
     margin-top: 3px;
+    margin-bottom: 5px;
+}
+.info{
+    font-size: medium;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+.moreInfo{
+    color: #333;
+}
+
+.moreInfoSpan{
+    overflow-y: hidden;
+    display: inline-block;
+    transition: all 0.5s ease;
 }

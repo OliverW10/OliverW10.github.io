@@ -12,7 +12,15 @@ interface CardIconProps{
 function CardIcon(props: CardIconProps){
  return <>
   {typeof props.link !== 'undefined' && 
-    <a className={styles.iconLink} href={props.link} title={props.title}><Image className={styles.icon} src={props.src} width={22} height={22}/></a>
+    <a className={styles.iconLink} href={props.link} title={props.title}>
+      <Image
+        className={styles.icon}
+        src={props.src} 
+        layout="responsive" 
+        width="30px" 
+        height="30px" 
+        objectFit="contain"/>
+    </a>
   }</> 
 }
 
@@ -22,18 +30,19 @@ export interface CardProps{
 }
 
 export default function Card(props: CardProps){
-  return <div className={styles.card}>
+  const [active, setActive] = React.useState(false);
+  return <div className={styles.card} onClick={()=>setActive(!active)}>
     <div>
       <p className={styles.language}>{props.cardInfo.language}</p>
       <h3 className={styles.title}>{props.cardInfo.title}</h3>
-      <p>{props.cardInfo.info}</p>
-      <span>
-        <p>{props.cardInfo.more_info}</p>
-        <CardIcon src="/images/github.png" link={props.cardInfo.repo} title="Repository" />
-        <CardIcon src="/images/website.png" link={props.cardInfo.live} title="Live website" />
-        <CardIcon src="/images/download.png" link={props.cardInfo.download} title="Download" />
-        <CardIcon src="/images/youtube.png" link={props.cardInfo.video} title="Youtube video" />
-      </span>
+      <p className={styles.info}>{props.cardInfo.info}</p>
+      <span className={styles.moreInfoSpan} style={{maxHeight:(active?100:0)+"px"}}>
+        <p className={styles.moreInfo}>{props.cardInfo.more_info}</p>
+      </span><br />
+      <CardIcon src="/images/github.png" link={props.cardInfo.repo} title="Repository" />
+      <CardIcon src="/images/website.png" link={props.cardInfo.live} title="Live website" />
+      <CardIcon src="/images/download.png" link={props.cardInfo.download} title="Download" />
+      <CardIcon src="/images/youtube.png" link={props.cardInfo.video} title="Youtube video" />
     </div>
     <span>
       <p className={styles.date}>{props.cardInfo.date.getMonth()}/{props.cardInfo.date.getFullYear()}</p>

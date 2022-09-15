@@ -5,3 +5,12 @@ html, body {
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
     sans-serif;
 }
+
+*{
+    /* font-size-adjust: 200%; */
+}
+@media only screen and (min-width: 768px) {
+    *{
+        font-size-adjust: 100%;
+    }
+} 

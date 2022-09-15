@@ -8,12 +8,8 @@ export default function Home() {
 
   return (
     <Layout>
-      <Head>
-        <title>Home</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <p contentEditable="true" id={styles.text} onChange={e=>console.log(e)}>idk whats meant to go on a home page<br />
-      you can draw what you want here<br />
+      you can draw what you think should go here<br />
       </p>
       <Canvas />
       <div hidden>

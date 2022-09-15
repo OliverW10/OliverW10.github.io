@@ -118,7 +118,7 @@ export const allProjects: CardInfo[] = [
   {
     title: "Multiplayer",
     info: "Realtime multiplayer pvp web game using WebRTC",
-    more_info: "Uses react for the UI and WebRTC for peer-to-peer multiplayer",
+    more_info: "Uses react for the UI and WebRTC for peer-to-peer aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa ",
     repo: "https://github.com/OliverW10/multiplayer",
     live: "https://OliverW10.github.io/multiplayer",
     completed: false,

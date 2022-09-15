@@ -3,19 +3,29 @@
     display: flex;
     border-bottom: 1px solid black;
     cursor: default;
-    height: 50px;
+    height: min-content
 }
+
+@media only screen and (min-width: 768px) {
+    .link{
+        padding: 10px !important;
+    }
+} 
 
 #headerbar *{
     z-index: 1;
 }
 
 .link{
+    display: grid;
+    align-content: center;
     margin: 5px;
-    padding: 10px;
     background-color: #fff;
     text-decoration: none;
     color: black;
+    vertical-align: middle;
+    padding: 30px;
+    /* font-size: larger; */
 }
 
 .link:hover{

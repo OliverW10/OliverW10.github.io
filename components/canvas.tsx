@@ -8,11 +8,17 @@ interface Line{
   y2: number,
 }
 
+const a = "oliv" + "er.warri"
+const b = "ck2@gm"
+const c = "ail.com"
+const email = a+b+c
+
 export default function Canvas(){
   // get window size to resize canvas buffer to match actual size
   // https://stackoverflow.com/a/63827136
   const [width, setWidth] = React.useState(100)
   const [height, setHeight] = React.useState(100)
+  const [drawnNum, setDrawnNum] = React.useState(0)
   const updateDimensions = () => {
     setWidth(window.innerWidth);
     setHeight(window.innerHeight);
@@ -48,9 +54,19 @@ export default function Canvas(){
       ctx.moveTo(e.clientX-e.movementX, e.clientY-e.movementY-canvasRect.top)
       ctx.lineTo(e.clientX, e.clientY-canvasRect.top)
       ctx.stroke();
+      setDrawnNum(drawnNum+1)
     }
   }
   return <>
     <canvas id={styles.canvas} ref={canvasEl} onMouseMove={onmove} width={width+"px"} height={(height)+"px"}></canvas>
+    {drawnNum>20 && 
+      <p id={styles.submitText}>looks good, keep going</p>
+    }<br />
+    {drawnNum>100 && 
+      <p id={styles.submitText}>masterpiece</p>
+    }<br />
+    {drawnNum>20 && 
+      <p id={styles.submitText}></p>
+    }
   </>
 }

@@ -66,7 +66,11 @@ export default function Projects(){
   // typescript is overrated anyway
 
   return <Layout>
-    <ProjectFilters sortTypeCallback={setSortType} filterCallback={setCoolnessFilter} languageCallback={setLanguageFilter} />
-    <CardList cards={projects}/>
+    <div id={styles.outerContainer}>
+      <div id={styles.projectContainer}>
+        <ProjectFilters sortTypeCallback={setSortType} filterCallback={setCoolnessFilter} languageCallback={setLanguageFilter} />
+        <CardList cards={projects}/>
+      </div>
+    </div>
   </Layout>
 }
