@@ -2,6 +2,12 @@
 #headerbar{
     display: flex;
     border-bottom: 1px solid black;
+    cursor: default;
+    height: 50px;
+}
+
+#headerbar *{
+    z-index: 1;
 }
 
 .link{
@@ -16,5 +22,4 @@
     /* background-color: #aaa; */
     text-decoration: underline;
     outline: 1px solid black;
-
 }

@@ -6,7 +6,8 @@ import { Language, CardInfo, allProjects } from '../components/projectData'
 
 type sortTypes = "Date" | "Coolness"
 // maps between sortType and the cardInfo attribute to sort by
-const sortTypeMap = {
+// type makes typescript happy with indexing
+const sortTypeMap: { [key: string]: keyof CardInfo } = {
   "Date":"date",
   "Coolness":"coolness"
 }
@@ -61,7 +62,8 @@ export default function Projects(){
   const projects = allProjects.filter((c)=>languageFilter
     .includes(c.language))
     .filter((c)=>c.coolness>=coolnessCutoff)
-    .sort((a,b)=>b[sortAttr]-a[sortAttr]);
+    .sort((a,b)=>(b[sortAttr] as any)-(a[sortAttr] as any));
+  // typescript is overrated anyway
 
   return <Layout>
     <ProjectFilters sortTypeCallback={setSortType} filterCallback={setCoolnessFilter} languageCallback={setLanguageFilter} />

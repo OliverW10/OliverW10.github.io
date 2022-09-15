@@ -5,11 +5,11 @@ import Image from 'next/image'
 
 interface CardIconProps{
   src: string,
-  link: string,
+  link?: string,
   title: string,
 }
 
-function CardIcon(props){
+function CardIcon(props: CardIconProps){
  return <>
   {typeof props.link !== 'undefined' && 
     <a className={styles.iconLink} href={props.link} title={props.title}><Image className={styles.icon} src={props.src} width={22} height={22}/></a>

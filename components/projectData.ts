@@ -17,20 +17,20 @@ export interface CardInfo {
 
 export const allProjects: CardInfo[] = [
   {
-    title: "Arm",
+    title: "Robotic Arm",
     info: "Homemade 3DOF robot arm",
     more_info: "Runs on a raspberry pi using the Orocos library for inverse kinematics and trajectory planning, uses apriltags and a intel realsense camera to localize",
     repo: "https://github.com/OliverW10/arm",
     video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     completed: false,
-    date: new Date(2022, 7),
+    date: new Date(2022, 8),
     coolness: 4, // 0-10
     language: "C/C++",
   },
   {
     title: "Word search solver",
     info: "An android app to solve word search's (find-a-word's) by taking a picutre",
-    more_info: "aaaa",
+    more_info: "Uses Kivy to build to android, uses opencv to do image processing",
     repo: "https://github.com/OliverW10/word-search-solver",
     live: "https://OliverW10.github.io/word-search-solver",
     download: "https://github.com/OliverW10/word-search-solver/releases/download/v0.3-alpha/myapp-0.3-armeabi-v7a-debug.apk",
@@ -40,9 +40,9 @@ export const allProjects: CardInfo[] = [
     language: "Python"
   },
   {
-    title: "Wordle Solver",
-    info: "Program to a solve wordle from just the emoji output you get",
-    more_info: "aaaa",
+    title: "Bad Wordle Solver",
+    info: "Program to a solve wordle by only seeing the colors of the squares",
+    more_info: "Tries to guess the wordle by only seeing the emoji board you get when you finish a game",
     repo: "https://github.com/OliverW10/wordle",
     completed: true,
     date: new Date(2021, 11),
@@ -52,7 +52,7 @@ export const allProjects: CardInfo[] = [
   {
     title: "Pacman",
     info: "AI experiments in pacman",
-    more_info: "aaaa",
+    more_info: "Pacman made using pygame with various AI's to control the ghosts and pacman",
     repo: "https://github.com/OliverW10/pacman",
     live: "https://OliverW10.github.io/pacman",
     completed: false,
@@ -63,7 +63,7 @@ export const allProjects: CardInfo[] = [
   {
     title: "Pizza",
     info: "Pizza ordering webapp and database",
-    more_info: "Used React for the front-end, PostgreSQL for the backend",
+    more_info: "Used React for the front-end, NodeJs and PostgreSQL for the backend",
     repo: "https://github.com/OliverW10/sdd-pizza",
     live: "https://sdd-pizza.netlify.app/",
     completed: true,
@@ -74,9 +74,9 @@ export const allProjects: CardInfo[] = [
   {
     title: "Chaos",
     info: "Chaotic gravity simulation visualization",
-    more_info: "webgl GLSL shader to visualize the chaotic nature of a tripple attractor",
+    more_info: "webgl GLSL shader to visualize the chaotic nature of a triple attractor",
     repo: "https://github.com/OliverW10/chaos",
-    live: "https://OliverW10.github.io/chaos",
+    live: "https://OliverW10.github.io/chaos/webgl",
     completed: true,
     date: new Date(2022, 1),
     coolness: 3, // 0-10
@@ -97,8 +97,8 @@ export const allProjects: CardInfo[] = [
     title: "Tonnis",
     info: "Tennis game made in javascript with html canvas",
     more_info: "",
-    repo: "https://github.com/OliverW10/OliverW10.github.io/blob/games/tennis",
-    live: "https://oliverw10.github.io/tennis/index.html",
+    repo: "https://github.com/OliverW10/js-games/blob/games/tennis",
+    live: "https://oliverw10.github.io/js-games/tennis/index.html",
     completed: true,
     date: new Date(2020, 4),
     coolness: 5, // 0-10
@@ -108,8 +108,8 @@ export const allProjects: CardInfo[] = [
     title: "Drifting game",
     info: "Top down racing game made in javascript with html canvas",
     more_info: "",
-    repo: "https://github.com/OliverW10/OliverW10.github.io/blob/games/racer/",
-    live: "https://oliverw10.github.io/racer/race.html",
+    repo: "https://github.com/OliverW10/js-games/blob/games/racer/",
+    live: "https://oliverw10.github.io/js-games/race.html",
     completed: true,
     date: new Date(2019, 6),
     coolness: 4, // 0-10
@@ -117,8 +117,8 @@ export const allProjects: CardInfo[] = [
   },
   {
     title: "Multiplayer",
-    info: "Multiplayer web game using WebRTC, uses react for the UI",
-    more_info: "",
+    info: "Realtime multiplayer pvp web game using WebRTC",
+    more_info: "Uses react for the UI and WebRTC for peer-to-peer multiplayer",
     repo: "https://github.com/OliverW10/multiplayer",
     live: "https://OliverW10.github.io/multiplayer",
     completed: false,
@@ -128,8 +128,8 @@ export const allProjects: CardInfo[] = [
   },
   {
     title: "FRC 2022",
-    info: "Robot code for the 2022 First robotics competition season on team 4774",
-    more_info: "Implimented kalman filter localization, path generation, automated turret and swerve drive code",
+    info: "Captain for the 2022 First robotics competition season on team 4774",
+    more_info: "Lead a team to build a robot and automate almost all robot actions using RobotPy",
     repo: "https://github.com/thedropbears/pyrapidreact",
     video: "https://www.youtube.com/watch?v=IaR-7Fr0wzE",
     completed: true,
