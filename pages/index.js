@@ -7,7 +7,7 @@ import Canvas from '../components/canvas'
 export default function Home() {
 
   return (
-    <Layout>
+    <Layout title="/Home">
       <p contentEditable="true" id={styles.text} onChange={e=>console.log(e)}>idk whats meant to go on a home page<br />
       you can draw what you think should go here<br />
       </p>

@@ -2,10 +2,33 @@ import Layout from '../components/layout.js'
 import styles from "./Projects.module.css"
 import Card from "../components/card"
 import React from 'react'
-import { Language, CardInfo, allProjects } from '../components/projectData'
+import { Language, CardInfo, allProjects, allLanguages } from '../components/projectData'
+import { removeItem } from '../util'
+
+interface LanguageCheckboxProps{
+  languages: Language[],
+  name: Language,
+  callback: (val: Language[])=>void,
+}
+
+function LanguageCheckbox(props: LanguageCheckboxProps){
+  const clickCallback = (e:any)=>{
+    if(e.target.checked){
+      console.log(props.languages.concat(props.name))
+      props.callback(props.languages.concat(props.name))
+    }else{
+      console.log(removeItem(props.languages, props.name))
+      props.callback(removeItem(props.languages, props.name))
+    }
+  }
+  return <label>
+    {props.name}
+    <input type="checkbox" checked={props.languages.includes(props.name)} onChange={clickCallback}></input>
+  </label>
+}
 
 type sortTypes = "Date" | "Coolness"
-// maps between sortType and the cardInfo attribute to sort by
+// maps between sortType and the carInfo attribute to sort by
 // type makes typescript happy with indexing
 const sortTypeMap: { [key: string]: keyof CardInfo } = {
   "Date":"date",
@@ -13,8 +36,11 @@ const sortTypeMap: { [key: string]: keyof CardInfo } = {
 }
 
 interface ProjectFilterProps{
+  sortType: sortTypes,
   sortTypeCallback: (val: sortTypes)=>void,
+  showAll: boolean,
   filterCallback: (val: boolean)=>void,
+  languages: Language[],
   languageCallback: (val: Language[])=>void,
 }
 function ProjectFilters(props: ProjectFilterProps){
@@ -25,16 +51,16 @@ function ProjectFilters(props: ProjectFilterProps){
         <option value="Coolness">Size</option>
       </select>
     </label>
-    <label>
-      Language
-      {/* <select multiple>
-        <option selected>Python</option>
-        <option selected>Javascript</option>
-        <option selected>C++</option>
-        <option selected>C</option>
-        <option selected>Other</option>
-      </select> */}
-    </label>
+    <details id={styles.languageTitle}>
+      <summary>
+        Language
+      </summary>
+      <div id={styles.languageSelection}>
+        {allLanguages.map((l)=>{
+          return <LanguageCheckbox key={l} name={l} languages={props.languages} callback={props.languageCallback} />
+        })}
+      </div>
+    </details>
     <label title="Even the not so great ones">
       Show all:
       <input type="checkbox" onChange={(e)=>props.filterCallback(e.target.checked)}></input>
@@ -53,7 +79,7 @@ function CardList(props: CardListProps){
 }
 
 export default function Projects(){
-  const [sortType, setSortType] = React.useState("Date")
+  const [sortType, setSortType] = React.useState("Date" as sortTypes)
   const [languageFilter, setLanguageFilter] = React.useState(["Python", "Javascript", "C/C++", "Other"] as Language[])
   const [coolnessFilter, setCoolnessFilter] = React.useState(false)
 
@@ -65,10 +91,17 @@ export default function Projects(){
     .sort((a,b)=>(b[sortAttr] as any)-(a[sortAttr] as any));
   // typescript is overrated anyway
 
-  return <Layout>
+  return <Layout title="/Projects">
     <div id={styles.outerContainer}>
       <div id={styles.projectContainer}>
-        <ProjectFilters sortTypeCallback={setSortType} filterCallback={setCoolnessFilter} languageCallback={setLanguageFilter} />
+        <ProjectFilters
+          sortTypeCallback={setSortType}
+          sortType={sortType}
+          filterCallback={setCoolnessFilter}
+          showAll={coolnessFilter}
+          languageCallback={setLanguageFilter}
+          languages={languageFilter}
+        />
         <CardList cards={projects}/>
       </div>
     </div>

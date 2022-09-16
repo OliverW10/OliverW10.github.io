@@ -16,10 +16,9 @@ function CardIcon(props: CardIconProps){
       <Image
         className={styles.icon}
         src={props.src} 
-        layout="responsive" 
-        width="30px" 
-        height="30px" 
-        objectFit="contain"/>
+        width={30}
+        height={30}
+      />
     </a>
   }</> 
 }

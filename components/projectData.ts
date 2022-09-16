@@ -1,5 +1,6 @@
 
 export type Language = "Python" | "Javascript" | "C/C++" | "Other"
+export const allLanguages: Language[] = ["Python", "Javascript", "C/C++", "Other"]
 export interface CardInfo {
     title: string,
     info: string,
