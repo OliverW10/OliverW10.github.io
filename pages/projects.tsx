@@ -15,10 +15,12 @@ function LanguageCheckbox(props: LanguageCheckboxProps){
   const clickCallback = (e:any)=>{
     if(e.target.checked){
       console.log(props.languages.concat(props.name))
-      props.callback(props.languages.concat(props.name))
+      // needs to call slice to make a copy and trigger re-render
+      const arrCopy = props.languages.slice().concat(props.name)
+      props.callback(arrCopy)
     }else{
       console.log(removeItem(props.languages, props.name))
-      props.callback(removeItem(props.languages, props.name))
+      props.callback(removeItem(props.languages, props.name).slice())
     }
   }
   return <label>
@@ -46,14 +48,14 @@ interface ProjectFilterProps{
 function ProjectFilters(props: ProjectFilterProps){
   return <span id={styles.filtersSpan}>
     <label>Sort by:{' '}
-      <select onChange={(e)=>props.sortTypeCallback(e.target.value as sortTypes)}>
+      <select onChange={(e)=>props.sortTypeCallback(e.target.value as sortTypes)} id={styles.sortSelect}>
         <option value="Date">Recent</option>
         <option value="Coolness">Size</option>
       </select>
     </label>
-    <details id={styles.languageTitle}>
+    <details id={styles.languageTitle} className="noselect">
       <summary>
-        Language
+       Language ⌄
       </summary>
       <div id={styles.languageSelection}>
         {allLanguages.map((l)=>{
@@ -61,7 +63,7 @@ function ProjectFilters(props: ProjectFilterProps){
         })}
       </div>
     </details>
-    <label title="Even the not so great ones">
+    <label>
       Show all:
       <input type="checkbox" onChange={(e)=>props.filterCallback(e.target.checked)}></input>
     </label>
@@ -80,7 +82,8 @@ function CardList(props: CardListProps){
 
 export default function Projects(){
   const [sortType, setSortType] = React.useState("Date" as sortTypes)
-  const [languageFilter, setLanguageFilter] = React.useState(["Python", "Javascript", "C/C++", "Other"] as Language[])
+  const [languageFilter, setLanguageFilter] = React.useState(["Other"] as Language[])
+  // const [languageFilter, setLanguageFilter] = React.useState(["Python", "Javascript", "C/C++", "Other"] as Language[])
   const [coolnessFilter, setCoolnessFilter] = React.useState(false)
 
   const coolnessCutoff = coolnessFilter?0:5
@@ -99,7 +102,7 @@ export default function Projects(){
           sortType={sortType}
           filterCallback={setCoolnessFilter}
           showAll={coolnessFilter}
-          languageCallback={setLanguageFilter}
+          languageCallback={(x)=>{console.log(x);setLanguageFilter(x)}}
           languages={languageFilter}
         />
         <CardList cards={projects}/>
