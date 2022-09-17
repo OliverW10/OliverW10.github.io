@@ -59,3 +59,13 @@
 #sortSelect:hover{
     background-color: #ccc;
 }
+#showMoreText{
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    font-size: small;
+    top: -5px;
+    height: 5px;
+    color: #999;
+}
