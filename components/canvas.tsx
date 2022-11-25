@@ -59,14 +59,8 @@ export default function Canvas(){
   }
   return <>
     <canvas id={styles.canvas} ref={canvasEl} onMouseMove={onmove} width={width+"px"} height={(height)+"px"}></canvas>
-    {drawnNum>20 && 
-      <p id={styles.submitText}>looks good, keep going</p>
-    }<br />
     {drawnNum>100 && 
-      <p id={styles.submitText}>masterpiece</p>
+      <p className="noselect" id={styles.submitText}>thats really good</p>
     }<br />
-    {drawnNum>20 && 
-      <p id={styles.submitText}></p>
-    }
   </>
 }

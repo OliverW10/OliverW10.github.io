@@ -1,11 +1,15 @@
 
 export type Language = "Python" | "Javascript" | "C/C++" | "Other"
 export const allLanguages: Language[] = ["Python", "Javascript", "C/C++", "Other"]
+export interface ImgObj {
+  src: string,
+  width: number,
+  height: number,
+}
 export interface CardInfo {
     title: string,
     info: string,
     more_info: string,
-    img?: string,
     repo?: string,
     live?: string,
     download?: string,
@@ -14,15 +18,16 @@ export interface CardInfo {
     completed: boolean,
     coolness: number,
     language: Language,
+    imgs?: ImgObj,
 }
 
 export const allProjects: CardInfo[] = [
   {
     title: "Robotic Arm",
-    info: "Homemade 3DOF robot arm",
+    info: "Homemade Robot arm",
     more_info: "A small handheld robotic arm that uses a intel realsens and apriltags to position keep a end effector still while the arms base is moved.",
     repo: "https://github.com/OliverW10/arm",
-    video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    video: "https://youtube.com/shorts/VSZCvpLxBhU",
     completed: false,
     date: new Date(2022, 10),
     coolness: 5, // 0-10
@@ -33,12 +38,18 @@ export const allProjects: CardInfo[] = [
     info: "An android app to solve word search's (find-a-word's) by taking a picutre",
     more_info: "Uses Kivy to build to android, uses opencv to do image processing. Used the K-Nearest-Neighbor algorithm to classify the letters with over 95% accuracy.",
     repo: "https://github.com/OliverW10/word-search-solver",
-    live: "https://OliverW10.github.io/word-search-solver",
+    live: "https://oliverw10.github.io/js-games/word-search-solver.html",
     download: "https://github.com/OliverW10/word-search-solver/releases/download/v0.3-alpha/myapp-0.3-armeabi-v7a-debug.apk",
     date: new Date(2020, 11),
     completed: true,
     coolness: 8, // 0-10
-    language: "Python"
+    language: "Python",
+    imgs:
+      {
+        src: "/images/wss.jpg",
+        width:6*30,// image is 6:13
+        height:13*30,
+      }
   },
   {
     title: "Bad Wordle Solver",
@@ -98,7 +109,7 @@ export const allProjects: CardInfo[] = [
     title: "Tonnis",
     info: "Tennis game made in javascript with html canvas",
     more_info: "",
-    repo: "https://github.com/OliverW10/js-games/blob/games/tennis",
+    repo: "https://github.com/OliverW10/js-games/tree/master/tennis",
     live: "https://oliverw10.github.io/js-games/tennis/index.html",
     completed: true,
     date: new Date(2020, 6),
@@ -109,8 +120,8 @@ export const allProjects: CardInfo[] = [
     title: "Drifting game",
     info: "Top down racing game made in javascript with html canvas",
     more_info: "",
-    repo: "https://github.com/OliverW10/js-games/blob/games/racer/",
-    live: "https://oliverw10.github.io/js-games/race.html",
+    repo: "https://github.com/OliverW10/js-games/tree/master/racer/",
+    live: "https://oliverw10.github.io/js-games/racer/race.html",
     completed: true,
     date: new Date(2019, 6),
     coolness: 4, // 0-10
@@ -119,7 +130,7 @@ export const allProjects: CardInfo[] = [
   {
     title: "Multiplayer",
     info: "Realtime multiplayer pvp web game using WebRTC",
-    more_info: "Uses react for the UI and WebRTC for peer-to-peer networking.",
+    more_info: "Uses react for the UI and WebRTC for peer-to-peer networking. ",
     repo: "https://github.com/OliverW10/multiplayer",
     live: "https://OliverW10.github.io/multiplayer",
     completed: false,
