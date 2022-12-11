@@ -32,7 +32,9 @@ export default function Card(props: CardProps){
   const [active, setActive] = React.useState(false);
   let maxMaxHeight = 150;
   if(typeof props.cardInfo.imgs !== "undefined"){
-    maxMaxHeight += props.cardInfo.imgs.height;
+    for(let i of props.cardInfo.imgs){
+      maxMaxHeight += i.height;
+    }
   }
   return <div className={styles.card} onClick={()=>setActive(!active)}>
     <div>
@@ -42,12 +44,12 @@ export default function Card(props: CardProps){
       <span className={styles.moreInfoSpan} style={{maxHeight:(active?maxMaxHeight:0)+"px"}}>
         <p className={styles.moreInfo}>{props.cardInfo.more_info}</p>
         <>{typeof props.cardInfo.imgs !== "undefined" &&
-            <Image
-              src={props.cardInfo.imgs.src}
-              width={props.cardInfo.imgs.width}
-              height={props.cardInfo.imgs.height}
+            props.cardInfo.imgs.map(i=>{return <Image
+              src={i.src}
+              width={i.width}
+              height={i.height}
               objectFit="contain" // maintains aspect ratio
-            />
+            />})
         }</>
       </span><br />
       <CardIcon src="/images/github.png" link={props.cardInfo.repo} title="Repository" />
